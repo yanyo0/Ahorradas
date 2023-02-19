@@ -22,7 +22,7 @@
 </head>
 <body class="w-screen h-screen font-['Unkempt'] text-zinc-400 tracking-wider bg-zinc-900 ">
   <header>
-    <nav class="flex flex-row items-center w-full bg-black">
+    <nav class="flex flex-row items-center w-full  bg-black">
         <div class="flex flex-row justify-end sm:justify-start w-1/2 m-5 p-1">
         <img src="./img/pigLogoG-.png"class="w-28"  alt="Logo chancho alcancía">
         <h1 class="flex self-center hidden sm:inline  text-4xl lg:text-5xl font-black text-lime-500">AhorrADA$</h1>
@@ -38,17 +38,18 @@
            <img src="./img/x.jpeg" alt="Menu icon" id="xIconBars" class="hidden">
         </div>
     </nav>
-  </header>
-
-  <main class="flex justify-center items-center bg-zinc-900 text-xl">
-
-    <section id="contentMenuBars" class="hidden absolute w-full sm:w-1/2 left-0 top-[29%] border border-zinc-700 bg-black">
+    <section id="contentMenuBars" class="hidden absolute w-full sm:w-1/2 left-0 top-[23%] border border-zinc-700 bg-black">
         <ul class="flex flex-col justify-between">
             <li id="btnMenuBarsBalanceSheets" class="m-5 text-2xl"><a href="#"><i class="fas fa-chart-line mr-2 " ></i>Balance</a></li>
             <li id="btnMenuBarsCategories" class="m-5 text-2xl"><a href="#"><i class="fas fa-tag mr-2 "></i>Categorías</a></li>
             <li id="btnMenuBarsRecords" class="m-5 text-2xl"><a href="#"><i class="fas fa-chart-pie mr-2 "></i>Reportes</a></li>
         </ul>
     </section>
+  </header>
+
+  <main class="flex justify-center items-center bg-zinc-900 text-xl">
+
+    
 
 
     <div class="flex flex-col xl:flex-row justify-center sm:justify-around items-center sm:items-start w-full sm:w-3/4 p-2 " id="balanceSheets">
@@ -307,19 +308,19 @@
 
                 <div class="flex flex-row justify-between mt-3">
                     <h5 class="w-2/4">Categoría con mayor ganancia</h5>
-                    <p  id="categoryHigherGainName" class="flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 "></p>
+                    <p  id="categoryHigherGainName" class="flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 hidden "></p>
                     <p  id="categoryHigherGainAmount" class="flex justify-end text-lime-600">+$ 0</p>
                 </div>
 
                 <div class="flex flex-row justify-between mt-3">
                     <h5 class="w-2/4">Categoría con mayor gasto</h5>
-                    <p id="categoryHigherExpenseName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 "></p>
+                    <p id="categoryHigherExpenseName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 hidden"></p>
                     <p id="categoryHigherExpenseAmount" class=" flex justify-end text-red-600">-$ 0</p>
                 </div>
 
                 <div class="flex flex-row justify-between mt-3">
                     <h5 class="w-2/4">Categoría con mayor balance</h5>
-                    <p id="categoryMoreBalanceName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1"></p>
+                    <p id="categoryMoreBalanceName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 hidden"></p>
                     <p id="categoryMoreBalanceAmount" class=" flex justify-end">+$ 0</p>
                 </div>
 
