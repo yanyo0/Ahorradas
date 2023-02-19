@@ -4,10 +4,384 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./JS/" defer></script>
-    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Unkempt&family=Warnes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css.css">
+
+    <link rel="icon" href="./img/logoWeb.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="./JS/script.js" defer></script>
+    <title>Ahorrada$</title>
 </head>
-<body>
+<body class="w-screen h-screen font-['Unkempt'] text-zinc-400 tracking-wider bg-zinc-900 ">
+  <header>
+    <nav class="flex flex-row items-center w-full bg-black">
+        <div class="flex flex-row justify-end sm:justify-start w-1/2 m-5 p-1">
+        <img src="./img/pigLogoG-.png"class="w-28"  alt="Logo chancho alcancía">
+        <h1 class="flex self-center hidden sm:inline  text-4xl lg:text-5xl font-black text-lime-500">AhorrADA$</h1>
+        </div>
+        <ul class="flex flex-row justify-end w-1/2 mr-5 hidden md:flex">
+            <li class="m-5 text-sm lg:text-xl xl:text-2xl" id="btnBalanceSheetsNav"><a href="#"><i class="fas fa-chart-line mr-2 " ></i>Balance</a></li>
+            <li class="m-5 text-sm lg:text-xl xl:text-2xl" id="btnCategoriesNav"><a href="#"><i class="fas fa-tag mr-2 "></i>Categorías</a></li>
+            <li class="m-5 text-sm lg:text-xl xl:text-2xl" id="btnRecords"><a href="#"><i class="fas fa-chart-pie mr-2 "></i>Reportes</a></li>
+        </ul>
+
+        <div class="w-[35px] h-[35px] top-[10%] left-[53%] sm:left-[90%] bg-zinc-900 md:hidden menuBars">
+           <img src="./img/lines-three.jpg" alt="Menu icon" class="" id="lineIconBars">
+           <img src="./img/x.jpeg" alt="Menu icon" id="xIconBars" class="hidden">
+        </div>
+    </nav>
+  </header>
+
+  <main class="flex justify-center items-center bg-zinc-900 text-xl">
+
+    <section id="contentMenuBars" class="hidden absolute w-full sm:w-1/2 left-0 top-[29%] border border-zinc-700 bg-black">
+        <ul class="flex flex-col justify-between">
+            <li id="btnMenuBarsBalanceSheets" class="m-5 text-2xl"><a href="#"><i class="fas fa-chart-line mr-2 " ></i>Balance</a></li>
+            <li id="btnMenuBarsCategories" class="m-5 text-2xl"><a href="#"><i class="fas fa-tag mr-2 "></i>Categorías</a></li>
+            <li id="btnMenuBarsRecords" class="m-5 text-2xl"><a href="#"><i class="fas fa-chart-pie mr-2 "></i>Reportes</a></li>
+        </ul>
+    </section>
+
+
+    <div class="flex flex-col xl:flex-row justify-center sm:justify-around items-center sm:items-start w-full sm:w-3/4 p-2 " id="balanceSheets">
+    <div class="m-2 flex flex-col justify-start w-full  xl:w-1/4 " >
+
+
+    <section class="w-full  p-3 bg-black border border-zinc-700 rounded-md" >
+        <div><h2 class="text-3xl font-extrabold text-zinc-300">Balance</h2></div>
+        <div class="flex flex-row justify-between">
+            <h6>Ganancias</h6>
+            <p id="earningsBlance" class="text-lime-600">+$0</p>
+        </div>
+        <div class="flex flex-row justify-between">
+            <h6>Gastos</h6>
+            <p id="expenseBalance" class="text-red-600">-$0</p>
+        </div>
+        <div class="flex flex-row justify-between">
+            <h6>Total</h6>
+            <p id="totalBalance" >$0</p>
+        </div>
+    </section>
+
+    <section class="w-full mt-3 sm:mt-0 p-3 bg-black border border-zinc-700 rounded-md">
+        <div class="flex flex-row justify-between">
+            <h2 class="text-3xl font-extrabold text-zinc-300">Filtros</h2>
+            <button id="hiddenFilter" type="button" class="self-center text-base text-lime-500">Ocultar filtros</button>
+            <button id="showFilter" type="button" class="self-center text-base text-lime-500 hidden">Mostrar filtros</button>
+        </div>
+        <form id="itemsFilters" action="">
+            <div class="flex flex-col">
+            <label for="" class="mt-2">Tipo</label>
+            <select id="filterType" class="mt-2 border border-solid border-lime-500 rounded-md bg-zinc-900">
+                <option value="all">Todos</option>
+                <option value="expense">Gasto</option>
+                <option value="gain">Ganancia</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col">
+              <label class="mt-2">Categoría</label>
+                <select id="filterCategory" class="mt-2 border border-lime-500 rounded-md bg-zinc-900  ">
+                  
+                </select>
+            </div>
+
+            <div class="flex flex-col">
+                <label class="mt-2">Desde</label>
+                    <div class="mt-2">
+                        <input id="filterDate" class="w-full border border-lime-500 rounded-md bg-zinc-900" type="date" placeholder="">
+                    </div>
+            </div>
+
+            <div class="flex flex-col">
+                <label class="mt-2">Ordenar por</label>
+                <div class="mt-2">
+                    <select id="filterOrder" class="w-full border border-lime-500 rounded-md bg-zinc-900 ">
+                    <option value="mostRecent">Más reciente</option>
+                    <option value="lessRecent">Menos reciente</option>
+                    <option value="mostAmount">Mayor monto</option>
+                    <option value="lessAmount">Menor monto</option>
+                    <option value="AZ">A/Z</option>
+                    <option value="ZA">Z/A</option>
+                    </select>
+            </div>
+        </form>
+
+    </section>
+
+</div>
+
+    <section class="w-full xl:w-[70%] m-2 p-3 bg-black shadow-md border border-zinc-700 rounded-md">
+        <div class="flex flex-col sm:flex-row justify-between">
+            <h2 class="text-3xl font-extrabold text-zinc-300">Operaciones</h2>
+            <button id="btnNewO" class="p-2 m-5 sm:m-0 border border-lime-500 rounded-md text-lime-500 hover:bg-zinc-900">+ Nueva operación</button>
+        </div> 
+        <div id="withoutResult" class="flex flex-col justify-center items-center hidden" >
+            <img class="w-3/4"  src="./img/giphy.gif">
+            <div class="w-full">
+                <h3 class="text-center font-medium text-2xl ">Sin resultados</h3>
+                <p class="text-center text-base">Cambia los filtros o agrega operaciones</p>
+                </div>
+            </div>
+            <div id="conatinerOperation" class="w-full mt-7">
+               
+                <table class="w-full p-1 text-sm sm:text-base">
+                    <thead id="operations-header-table" class="">
+                        <tr class="font-bold text-zinc-300">
+                            <th class="flex justify-start">Descripción</th>
+                            <th>Categoría</th>
+                            <th class="hidden sm:flex justify-center">Fecha</th>
+                            <th>Monto</th>
+                            <th class="hidden sm:flex justify-end">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="boxOperations">
+                       
+                    </tbody>
+                </table>
+
+                </div>
+            
+    </section>
+
+</div>
+
+
+
+<!-- ---------    NUEVA OPERACION  ------------ -->
+
+<div class="w-full md:w-3/6 m-2 p-2 hidden" id="newOperation">
+    <section class="w-full mt-7 p-6 bg-black border border-zinc-700 rounded-md ">
+        <h2 class="text-3xl font-extrabold text-zinc-300">Nueva operación</h2>
+    <form action="" class="mt-2">
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Descripción</label>
+            <input id="addDescription" type="text" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorDescriptionOperation" class="mt-3 text-red-600 hidden">* Debe ingresar una descripción de la operación</p>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Monto</label>
+            <input id="addAmount" type="number" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorAmountOperation" class="mt-3 text-red-600 hidden">* Debe ingresar un monto</p>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Tipo</label>
+            <select name="" id="addType" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+                <option value="expense">Gasto</option>
+                <option value="gain">Ganancia</option>
+            </select>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Categoría</label>
+            <select name="" id="addCategoryNewOperation" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+              
+            </select>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Fecha</label>
+            <input id="addDate" type="date" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorDateOperation" class="mt-3 text-red-600 hidden">* Debe ingresar una fecha</p>
+        </div>
+
+        <div class="flex flex-row justify-end items-center mt-2">
+            <button id="btnNewOperationCancel" class="mt-4 mr-2 p-2 border border-lime-500 rounded-md text-lime-500 hover:bg-zinc-900 font-extrabold">Cancelar</button>
+            <button id="btnAddNewOperation" class="mt-4 ml-2 p-2 border border-lime-500 rounded-md text-black bg-lime-300 font-extrabold">Agregar</button>
+        </div>
+
+    </form>
+    </section>
+</div>
+
+
+
+<!-- -- EDIT OPERATION--  -->
+
+<div class="w-full md:w-3/6 m-2 p-2 hidden " id="sectionEditOperation">
+    <section class="w-full mt-7 p-6 bg-black border border-zinc-700 rounded-md ">
+        <h2 class="text-3xl font-extrabold text-zinc-300">Editar operación</h2>
+    <form action="" class="mt-2">
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Descripción</label>
+            <input id="editDescriptionOperation" type="text" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorDescriptionEditOperation" class="mt-3 text-red-600 hidden">* Debe ingresar descripción de la operación</p>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Monto</label>
+            <input id="editAmountOperation" type="number" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorAmountEditOperation" class="mt-3 text-red-600 hidden">* Debe ingresar un monto</p>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Tipo</label>
+            <select name="" id="editTypeOperation" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+                <option value="expense">Gasto</option>
+                <option value="gain">Ganancia</option>
+            </select>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Categoría</label>
+            <select name="" id="editCategoryOperation" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+             
+            </select>
+        </div>
+
+        <div class="flex flex-col mt-2">
+            <label for="" class="mt-2 font-semibold">Fecha</label>
+            <input id="editDateOperation" type="date" class="mt-2 border border-lime-500 rounded-md bg-zinc-900">
+            <p id="errorDateEditOperation" class="mt-3 text-red-600 hidden">* Debe ingresar una fecha</p>
+        </div>
+
+        <div class="flex flex-row justify-end items-center mt-2">
+            <button id="btnEditOperationCancel" class="mt-4 mr-2 p-2 border border-lime-500 rounded-md text-lime-500 hover:bg-zinc-900 font-extrabold">Cancelar</button>
+            <button id="btnEditOperation" class="mt-4 ml-2 p-2 border border-lime-500 rounded-md text-black bg-lime-300 font-extrabold">Editar</button>
+        </div>
+
+    </form>
+    </section>
+</div>
+
+<!-- --------- CATEGORIAS -----------    -->
+
+
+
+<div class="w-full md:w-3/5 m-2 p-2 hidden" id="categories">
+    <section class="w-full mt-7 p-6 bg-black border border-zinc-700 rounded-md ">
+        <h2 class="text-3xl font-extrabold text-zinc-300">Categorías</h2>
+
+        <div class="mt-5">
+            <form action="">
+            <label for="" class=" font-semibold">Nombre</label>
+            <div class="flex flex-col xl:flex-row">
+                <input id="addNewCategory" type="text" class="w-[100%] xl:w-[85%] mt-1 h-10 border border-lime-500 rounded-md bg-zinc-900">
+                <button id="btnAddNewCategory" class="mt-5 xl:ml-3 xl:mt-0 p-2 border border-lime-500 rounded-md text-black bg-lime-300 font-extrabold">Agregar</button>
+            </div>
+            <p id="errorNameCategory" class="mt-3 text-red-600 hidden">* Ingresar nombre de categoría</p>
+            <p id="errorRepeatCategory" class="mt-3 text-red-600 hidden">* La categoría ya existe</p>
+        </form>
+        <div  id="boxCategory" class="mt-6">
+
+        </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- --- SECTION EDIT CATEGORY --- -->
+
+
+    <section id="sectionEditCategory" class="hidden w-full sm:w-2/4 m-[8%] p-6 text-base sm:text-xl bg-black border border-zinc-700 rounded-md ">
+        <h2 class="text-3xl font-extrabold text-zinc-300">Editar categoría</h2>
+        <div class="mt-6 sm:mt-1">
+            <label class=" text-xl font-semibold" for="">Nombre</label>
+            <input id="editNameCategory" class="w-3/4 mt- 3 sm:mt-6 border border-lime-500 rounded-md bg-zinc-900" type="text">
+            <p id="errorEditNameCategory" class="mt-3 text-red-600 hidden">* Ingresar nombre de categoría</p>
+            <p id="errorEditRepeatCategory" class="mt-3 text-red-600 hidden">* La categoría ya existe</p>
+        </div>
+        <div class="flex flex-row justify-end items-center mt-2">
+            <button id="btnEditCategoryCancel" class="mt-4 mr-2 p-2 border border-lime-500 rounded-md text-lime-500 hover:bg-zinc-900 font-extrabold">Cancelar</button>
+            <button id="btnEditCategory" class="mt-4 ml-2 p-2 border border-lime-500 rounded-md text-black bg-lime-300 font-extrabold">Editar</button>
+        </div>
+    </section>
+
+    <!-- ------------- REGISTROS -------------- -->
+
+    <div id="records" class="w-full md:w-3/5 m-2 p-1 sm:p-2 text-sm sm:text-xl hidden">
+        <section class="w-full mt-7 p-6 bg-black border border-zinc-700 rounded-md ">
+            <H2 class="text-3xl font-extrabold text-zinc-300">Reportes</H2>
+
+            <div class="mt-12">
+                <h3 class="font-semibold text-zinc-200 underline underline-offset-8">Resumen</h3>
+
+                <div class="flex flex-row justify-between mt-3">
+                    <h5 class="w-2/4">Categoría con mayor ganancia</h5>
+                    <p  id="categoryHigherGainName" class="flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 "></p>
+                    <p  id="categoryHigherGainAmount" class="flex justify-end text-lime-600">+$ 0</p>
+                </div>
+
+                <div class="flex flex-row justify-between mt-3">
+                    <h5 class="w-2/4">Categoría con mayor gasto</h5>
+                    <p id="categoryHigherExpenseName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1 "></p>
+                    <p id="categoryHigherExpenseAmount" class=" flex justify-end text-red-600">-$ 0</p>
+                </div>
+
+                <div class="flex flex-row justify-between mt-3">
+                    <h5 class="w-2/4">Categoría con mayor balance</h5>
+                    <p id="categoryMoreBalanceName" class=" flex justify-end text-lime-400 border border-lime-500 rounded-md p-1"></p>
+                    <p id="categoryMoreBalanceAmount" class=" flex justify-end">+$ 0</p>
+                </div>
+
+                <div class="flex flex-row justify-between mt-3">
+                    <h5 class="w-2/4">Mes con mayor ganancia</h5>
+                    <p id="monthHigherGainDate" class="flex justify-end">-</p>
+                    <p id="monthHigherGainAmount" class=" flex justify-end text-lime-600">+$ 0</p>
+                </div>
+
+                <div class="flex flex-row justify-between mt-3">
+                    <h5 class="w-2/4">Mes con mayor gasto</h5>
+                    <p id="monthHigherExpenseDate" class=" flex justify-end">-</p>
+                    <p id="monthHigherExpenseAmount" class=" flex justify-end text-red-600">-$ 0</p>
+                </div>
+            </div>
+
+            <div class="mt-12">
+                <h3 class="font-semibold text-zinc-200 underline underline-offset-8">Totales por categoría</h3>
+                
+                <div class="flex flex-row justify-between mt-3">
+                    <h4 class="w-1/4 text-zinc-200">Categoría</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Ganancias</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Gastos</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Balance</h4>
+                </div>
+
+                <div id="totalCategoryBox">
+               
+
+                </div>
+            </div>
+
+
+            <div class="mt-12">
+                <h3 class="font-semibold text-zinc-200 underline underline-offset-8">Totales por mes</h3>
+                
+                <div class="flex flex-row justify-between mt-3">
+                    <h4 class="w-1/4 text-zinc-200">Mes</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Ganancias</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Gastos</h4>
+                    <h4 class="w-1/4 flex justify-end text-zinc-200">Balance</h4>
+                </div>
+
+                
+                <div id="sumOperationMonthBox">
+                    
+                </div>
+
+              
+            </div>
+
+        </section>
+    </div>
+
+
+  </main>
+
+  <footer class="w-full h-200px] p-4 flex flex-row items-center justify-center md:justify-end bg-black ">
+    <p class="w-full md:w-1/2 ml-2 sm:mr-3 flex flex-row items-center justify-center md:justify-end text-base sm:text-xl">Hecho con <i class="fa-solid fa-heart ml-3 mr-3 text-lime-600"></i> por <span class="ml-3 mr-3 font-['Warnes'] text-lg sm:text-2xl text-lime-600">Yanyo0 </span> <img class="w-[20px] h-[20px] ml-1 mr-3" src="./img/logo.png"
+        alt="nariz de chanco"> </p>
+  </footer>
+  
     
 </body>
 </html>
