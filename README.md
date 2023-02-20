@@ -14,7 +14,7 @@ Ahorradas es una App de control de gastos, donde podes ir registrando los ingres
 
 ![Portada Categoría](./img/category.png)
 
-### sección Registros
+### Sección Registros
 
 ![Portada Reportes](./img/records.png)
 
@@ -25,6 +25,7 @@ Ahorradas es una App de control de gastos, donde podes ir registrando los ingres
 - Array y objetos
 - LocalStorage
 - CRUD
+- Tailwind (framework CSS)
 
 ##Interfaz de app con datos ingresados
 
