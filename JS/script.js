@@ -378,7 +378,7 @@ const paintOperation = (array) => {
         array.forEach(elem => {
         $boxOperations.innerHTML += `
                             <tr id="${elem.id}">
-                            <th class="flex justify-start">${elem.description}</th>
+                            <th class="flex justify-start mt-5 sm:mt-0">${elem.description}</th>
                             <th>${elem.category}</th>
                             <th class="hidden sm:flex justify-center">${elem.date}</th>
                             <th class="${elem.type === "ganancia" ? "text-lime-600" : "text-red-600"}"> $ ${elem.amount}</th>
